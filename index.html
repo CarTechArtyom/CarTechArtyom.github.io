@@ -5,19 +5,37 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <!--Start of Tawk.to Script-->
+    <!-- Flyzoo script v3 -->
     <script type="text/javascript">
-        var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
-        (function(){
-            var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-            s1.async=true;
-            s1.src='https://embed.tawk.to/5d541e30eb1a6b0be60783cc/default';
-            s1.charset='UTF-8';
-            s1.setAttribute('crossorigin','*');
-            s0.parentNode.insertBefore(s1,s0);
+        (function () {
+            window._FlyzooApplicationId="5d5523cf4fb4d54210b6cbdc5d55238a4fb4d54210b6cbd7";
+            var fz = document.createElement('script'); fz.type = 'text/javascript'; fz.async = true;
+            fz.src = '//widget.flyzoo.co/scripts/flyzoo.start.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(fz, s);
         })();
     </script>
-    <!--End of Tawk.to Script-->
+    <!--<script type="text/javascript" src="https://unpkg.com/@cometchat-pro/chat@1.8.3/CometChat.js"></script>
+    <script>
+        CometChat.init("6491b7ffcf7901").then(
+            () => {
+                console.log("Initialization completed successfully");
+                // You can now call login function.
+            },
+            error => {
+                console.log("Initialization failed with error:", error);
+                // Check the reason for error and take appropriate action.
+            }
+        );
+
+        CometChat.login(1000, "6fef32d3247d3bb2ee73bdbbbd61ab56654775bd").then(
+            user => {
+                console.log("Login Successful:", { user });
+            },
+            error => {
+                console.log("Login failed with exception:", { error });
+            }
+        );
+    </script>-->
     <title>Chat test</title>
 </head>
 <body>
