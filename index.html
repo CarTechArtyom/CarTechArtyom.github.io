@@ -5,7 +5,6 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <script type="text/javascript" src="sendbird_sdk/SendBird.min.js"></script>
     <script>
         (function(w, d, u, i, o, s, p) {
             if (d.getElementById(i)) { return; } w['MangoObject'] = o;
@@ -15,7 +14,8 @@
         }(window, document, '//widgets.mango-office.ru/widgets/mango.js', 'mango-js', 'mgo'));
         mgo({multichannel: {id: 4569}});
     </script>
-    <!--<script>
+    <!--<script type="text/javascript" src="sendbird_sdk/SendBird.min.js"></script>
+    <script>
         var queryParams = decodeURIComponent(window.location.search.substr(1)).split("&");
         var chatSettings = [];
 
