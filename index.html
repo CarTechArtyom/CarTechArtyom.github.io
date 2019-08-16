@@ -5,34 +5,132 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <!-- Start of  Zendesk Widget script -->
-    <script id="ze-snippet" src="https://static.zdassets.com/ekr/snippet.js?key=8260c38d-5710-4c7c-b8c3-6c0b71cf779b"> </script>
-    <!-- End of  Zendesk Widget script -->
-    <!--<script type="text/javascript" src="https://unpkg.com/@cometchat-pro/chat@1.8.3/CometChat.js"></script>
+    <script type="text/javascript" src="sendbird_sdk/SendBird.min.js"></script>
     <script>
-        CometChat.init("6491b7ffcf7901").then(
-            () => {
-                console.log("Initialization completed successfully");
-                // You can now call login function.
-            },
-            error => {
-                console.log("Initialization failed with error:", error);
-                // Check the reason for error and take appropriate action.
-            }
-        );
+        (function(w, d, u, i, o, s, p) {
+            if (d.getElementById(i)) { return; } w['MangoObject'] = o;
+            w[o] = w[o] || function() { (w[o].q = w[o].q || []).push(arguments) }; w[o].u = u; w[o].t = 1 * new Date();
+            s = d.createElement('script'); s.async = 1; s.id = i; s.src = u; s.charset = 'utf-8';
+            p = d.getElementsByTagName('script')[0]; p.parentNode.insertBefore(s, p);
+        }(window, document, '//widgets.mango-office.ru/widgets/mango.js', 'mango-js', 'mgo'));
+        mgo({multichannel: {id: 4569}});
+    </script>
+    <!--<script>
+        var queryParams = decodeURIComponent(window.location.search.substr(1)).split("&");
+        var chatSettings = [];
 
-        CometChat.login(1000, "6fef32d3247d3bb2ee73bdbbbd61ab56654775bd").then(
-            user => {
-                console.log("Login Successful:", { user });
-            },
-            error => {
-                console.log("Login failed with exception:", { error });
+        queryParams.forEach(function (element) {
+            var queryParam = element.split("=");
+            chatSettings[queryParam[0]] = queryParam[1];
+        });
+
+        var sb = new SendBird({appId: "E5527383-5C11-4FE3-8B05-C2E64FB12430"});
+
+        sb.connect(parseInt(chatSettings["user_id"]), function(user, error) {
+            if (error) {
+                console.log("User connect failed with error:", error);
+            } else {
+                console.log("User connect successful:", user);
             }
-        );
+        });
+
+        sb.OpenChannel.getChannel("sendbird_open_channel_55729_f115fc55bded929019b2d5de494d452d2cb8060c", function(openChannel, error) {
+            if (error) {
+                console.log("Get channel failed with error:", error);
+            }
+
+            openChannel.enter(function(response, error) {
+                if (error) {
+                    return;
+                }
+            });
+        });
     </script>-->
+    <!--<script>
+        var queryParams = decodeURIComponent(window.location.search.substr(1)).split("&");
+        var chatSettings = [];
+
+        queryParams.forEach(function (element) {
+            var queryParam = element.split("=");
+            chatSettings[queryParam[0]] = queryParam[1];
+        });
+
+        window.intercomSettings = {
+            app_id: "utrrm709",
+            name: chatSettings["name"],
+            email: chatSettings["email"],
+            role: chatSettings["role"],
+            town: chatSettings["town"],
+            real_name: chatSettings["real_name"]
+        };
+    </script>
+
+    <script>(function(){var w=window;var ic=w.Intercom;if(typeof ic==="function"){ic('reattach_activator');ic('update',w.intercomSettings);}else{var d=document;var i=function(){i.c(arguments);};i.q=[];i.c=function(args){i.q.push(args);};w.Intercom=i;var l=function(){var s=d.createElement('script');s.type='text/javascript';s.async=true;s.src='https://widget.intercom.io/widget/utrrm709';var x=d.getElementsByTagName('script')[0];x.parentNode.insertBefore(s,x);};if(w.attachEvent){w.attachEvent('onload',l);}else{w.addEventListener('load',l,false);}}})();</script>-->
     <title>Chat test</title>
 </head>
 <body>
-Hello chat!
+<div class="chat"></div>
 </body>
+<!--<script type="text/javascript" src="https://unpkg.com/@cometchat-pro/chat@1.8.3/CometChat.js"></script>
+<script>
+    var queryParams = decodeURIComponent(window.location.search.substr(1)).split("&");
+    var chatSettings = [];
+
+    queryParams.forEach(function (element) {
+        var queryParam = element.split("=");
+        chatSettings[queryParam[0]] = queryParam[1];
+    });
+
+    CometChat.init("6491b7ffcf7901").then(
+        () => {
+            console.log("Initialization completed successfully");
+            // You can now call login function.
+        },
+        error => {
+            console.log("Initialization failed with error:", error);
+            // Check the reason for error and take appropriate action.
+        }
+    );
+
+    CometChat.login(parseInt(chatSettings["user_id"]), "4e489d995f9b3cb85f387fadf8e4f87fcbc098f6").then(
+        user => {
+            console.log("Login Successful:", { user });
+        },
+        error => {
+            console.log("Login failed with exception:", { error });
+        }
+    );
+
+    CometChat.addMessageListener(
+        "LISTENER_ID_" + chatSettings["user_id"],
+        new CometChat.MessageListener({
+            onTextMessageReceived: textMessage => {
+                console.log("Text message received successfully", textMessage);
+                // Handle text message
+            },
+            onMediaMessageReceived: mediaMessage => {
+                console.log("Media message received successfully",  mediaMessage);
+                // Handle media message
+            },
+            onCustomMessageReceived: customMessage => {
+                console.log("Custom message received successfully",  customMessage);
+                // Handle custom message
+            }
+
+        })
+    );
+
+    if (chatSettings["user_id"] === "1000") {
+        var textMessage = new CometChat.TextMessage(1001, "Hello World!", CometChat.MESSAGE_TYPE.TEXT, CometChat.RECEIVER_TYPE.GROUP);
+
+        CometChat.sendMessage(textMessage).then(
+            message => {
+                console.log("Message sent successfully:", message);
+                // Text Message Sent Successfully
+            },
+            error => {
+                console.log("Message sending failed with error:", error);
+            });
+    }
+</script>-->
 </html>
